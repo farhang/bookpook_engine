@@ -16,7 +16,7 @@ import { LibgenEntity } from "./models/libgen.entity";
       port: 3306,
       username: 'root',
       password: '',
-      database: 'libgen',
+      database: 'libgen_compact',
       entities: [LibgenEntity],
       synchronize: false,
     }),
