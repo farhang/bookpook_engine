@@ -15,10 +15,10 @@ export class BookService {
 
 
 
-  async getBookByMd5(md5: string): Promise<LibgenEntity[]> {
+  async getBookByMd5(md5: string): Promise<any> {
     console.log('md5', md5)
     return await this.libgenRepository.find({
-      select: ["Title"],
+      select: ["Title", "Coverurl", "MD5", "Author", "Year", "Extension", "Language", "PagesInFile", "Filesize"],
       where: [{ "MD5": md5 }]
     });
   }
@@ -32,15 +32,15 @@ export class BookService {
 
   async getLibgenByTitle(title: string): Promise<any[]> {
     return await this.libgenRepository.find({
-      select: ["Title", "Coverurl"],
-      where: [{ "Title": ILike(`%${title}%`) }]
+      select: ["Title", "Coverurl", "MD5", "Author", "Year", "Extension"],
+      where: [{ "Title": ILike(`${title}%`) }]
     });
   }
 
-  async getBookByTitle(title: string): Promise<any[]> {
+  async getBookByTitle(title: string): Promise<any> {
       //const fiction = await this.getFictionByTitle(title);
       const fiction = [];
       const libgen = await this.getLibgenByTitle(title);
-      return [{fiction: fiction, libgen: libgen, length: fiction.length + libgen.length}];
+      return {fiction: fiction, libgen: libgen, length: fiction.length + libgen.length};
   }
 }

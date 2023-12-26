@@ -12,5 +12,23 @@ export class LibgenEntity {
   Coverurl: string;
 
   @Column()
+  Author: string;
+
+  @Column()
+  Year: string;
+
+  @Column()
+  Extension: string;
+
+  @Column()
   Title: string;
+
+  @Column()
+  Language: string;
+
+  @Column()
+  PagesInFile: number;
+
+  @Column()
+  Filesize: number;
 }
