@@ -16,7 +16,6 @@ export class BookService {
 
 
   async getBookByMd5(md5: string): Promise<any> {
-    console.log('md5', md5)
     return await this.libgenRepository.find({
       select: ["Title", "Coverurl", "MD5", "Author", "Year", "Extension", "Language", "PagesInFile", "Filesize"],
       where: [{ "MD5": md5 }]
