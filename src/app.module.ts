@@ -5,6 +5,7 @@ import { TypeOrmModule } from "@nestjs/typeorm";
 import { BookModule } from './book/book.module';
 import { DownloadBookModule } from "./download-book/download-book.module";
 import { LibgenEntity } from "./models/libgen.entity";
+import { ConfigModule } from "@nestjs/config";
 
 
 @Module({
@@ -14,13 +15,14 @@ import { LibgenEntity } from "./models/libgen.entity";
       host: 'localhost',
       port: 3306,
       username: 'root',
-      password: '',
+      password: process.env.MYSQL_PASSWORD || '',
       database: 'libgen_compact',
       entities: [LibgenEntity],
       synchronize: false,
     }),
     BookModule,
-    DownloadBookModule
+    DownloadBookModule,
+    ConfigModule.forRoot()
   ],
   controllers: [AppController],
   providers: [AppService],
