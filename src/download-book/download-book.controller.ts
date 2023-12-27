@@ -9,8 +9,8 @@ export class DownloadBookController {
               private readonly httpService: HttpService) {}
 
 
-  @Get(':MD5')
-  async downloadBook(@Param('MD5') MD5, @Res() res: Response) {
-      return this.downloadBookService.downloadBook(MD5, res);
+  @Get(':MD5/:Extension')
+  async downloadBook(@Param('MD5') MD5, @Param('Extension') Extension, @Res() res: Response) {
+      return this.downloadBookService.downloadBook(MD5, Extension, res);
   }
 }

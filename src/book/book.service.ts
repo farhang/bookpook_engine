@@ -32,7 +32,7 @@ export class BookService {
 
   async getLibgenByTitle(title: string): Promise<any[]> {
     return await this.libgenRepository.find({
-      select: ["Title", "Coverurl", "MD5", "Author", "Year", "Extension"],
+      select: ["Title", "Coverurl", "MD5", "Author", "Year", "Extension", "Language", "PagesInFile", "Filesize"],
       where: [{ "Title": ILike(`${title}%`) }]
     });
   }

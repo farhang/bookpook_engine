@@ -4,7 +4,6 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from "@nestjs/typeorm";
 import { BookModule } from './book/book.module';
 import { DownloadBookModule } from "./download-book/download-book.module";
-import { FictionEntity } from "./models/fiction.entity";
 import { LibgenEntity } from "./models/libgen.entity";
 
 
