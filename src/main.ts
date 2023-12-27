@@ -4,9 +4,9 @@ import { AppModule } from './app.module';
 
 async function bootstrap() {
   const fs = require('fs');
-  const keyFile  = fs.readFileSync('/etc/letsencrypt/live/bookpook.ir/privkey.pem');
-  const certFile = fs.readFileSync('/etc/letsencrypt/live/bookpook.ir/fullchain.pem');
-
+  const keyFile  = fs.readFileSync(__dirname + '/../bookpook.ir/privkey.pem');
+  const certFile = fs.readFileSync(__dirname + '/../bookpook.ir/cert.pem');
+  console.log(__dirname)
   const app = await NestFactory.create(AppModule, {
     httpsOptions: {
       key: keyFile,
