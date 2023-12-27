@@ -10,6 +10,7 @@ import { ConfigModule } from "@nestjs/config";
 
 @Module({
   imports: [
+    ConfigModule.forRoot(),
     TypeOrmModule.forRoot({
       type: 'mysql',
       host: 'localhost',
@@ -22,7 +23,6 @@ import { ConfigModule } from "@nestjs/config";
     }),
     BookModule,
     DownloadBookModule,
-    ConfigModule.forRoot()
   ],
   controllers: [AppController],
   providers: [AppService],
