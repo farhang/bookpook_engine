@@ -9,6 +9,9 @@ export class LibgenEntity {
   MD5: string;
 
   @Column()
+  Visible: string;
+
+  @Column()
   Coverurl: string;
 
   @Column()

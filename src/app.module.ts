@@ -6,10 +6,15 @@ import { BookModule } from './book/book.module';
 import { DownloadBookModule } from "./download-book/download-book.module";
 import { LibgenEntity } from "./models/libgen.entity";
 import { ConfigModule } from "@nestjs/config";
+import { CacheModule } from "@nestjs/cache-manager";
 
 
 @Module({
   imports: [
+    CacheModule.register({
+        isGlobal: true
+      }
+    ),
     ConfigModule.forRoot(),
     TypeOrmModule.forRoot({
       type: 'mysql',
